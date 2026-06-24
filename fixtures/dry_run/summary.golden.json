@@ -1,0 +1,31 @@
+{
+  "actor": "akashi",
+  "lexiconNamespaces": [
+    "adDisclosureLink",
+    "adDisclosureSnapshot",
+    "adTransparencyReport",
+    "advertiserIdentity",
+    "creativeDisclosure",
+    "deliveryDisclosure",
+    "landingEvidence",
+    "malakEvidenceCandidate",
+    "methodNote",
+    "sourcePolicySnapshot"
+  ],
+  "mode": "fixture-dry-run",
+  "networkAccess": false,
+  "recordCounts": {
+    "adDisclosureLink": 1,
+    "adDisclosureSnapshot": 2,
+    "adTransparencyReport": 1,
+    "advertiserIdentity": 2,
+    "creativeDisclosure": 2,
+    "deliveryDisclosure": 2,
+    "landingEvidence": 2,
+    "malakEvidenceCandidate": 1,
+    "methodNote": 1,
+    "sourcePolicySnapshot": 1
+  },
+  "totalRecords": 15,
+  "writes": false
+}
