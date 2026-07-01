@@ -37,7 +37,7 @@ known phishing, malware, brand-abuse or fraud indicators.
 ## R0 Cells
 
 These cells are present as gated scaffolds under
-`/40-engine/kotoba/crates/kotoba-kotodama/cells/akashi_*`. Each one raises at import until
+`kotoba-lang/kotodama-cells/akashi_*`. Each one raises at import until
 ADR-2606022300 R1 activation and source-policy review gates are attested.
 
 | Cell | Phase | Output |

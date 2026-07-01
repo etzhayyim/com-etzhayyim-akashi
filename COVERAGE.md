@@ -76,7 +76,7 @@ A platform source can move from `candidate` to `covered-r1` only when:
 - Source-policy review workflow exists and keeps every live source disabled.
 - Source-policy approval format exists; the only example is fixture-only, not
   live collection.
-- Cell scaffold exists under `40-engine/kotoba/crates/kotoba-kotodama/cells/akashi_*`, but every
+- Cell scaffold exists under `kotoba-lang/kotodama-cells/akashi_*`, but every
   cell raises at import until ADR-2606022300 R1 activation gates are attested.
 - Lexicon-specific invariant and fixture parser tests exist in
   `test_akashi_invariants.py`.
