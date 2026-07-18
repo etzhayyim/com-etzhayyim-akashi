@@ -1,0 +1,29 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.akashi.adDisclosureLink",
+  "description": "Non-adjudicating factual link between public ad-disclosure records.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["createdAt", "linkType", "leftCid", "rightCid", "methodNoteCid", "nonAdjudicatingNotice", "attestingDid"],
+        "properties": {
+          "createdAt": {"type": "string", "format": "datetime"},
+          "linkType": {
+            "type": "string",
+            "knownValues": ["same-source-record", "same-disclosed-advertiser", "same-landing-domain", "same-creative-hash", "same-media-hash"]
+          },
+          "leftCid": {"type": "string"},
+          "rightCid": {"type": "string"},
+          "evidenceCids": {"type": "array", "items": {"type": "string"}, "minLength": 1},
+          "methodNoteCid": {"type": "string"},
+          "confidence": {"type": "string", "knownValues": ["source-exact", "hash-exact", "domain-match", "weak"]},
+          "nonAdjudicatingNotice": {"type": "boolean", "const": true},
+          "attestingDid": {"type": "string", "format": "did"}
+        }
+      }
+    }
+  }
+}

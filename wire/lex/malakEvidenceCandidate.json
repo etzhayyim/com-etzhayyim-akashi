@@ -1,0 +1,26 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.akashi.malakEvidenceCandidate",
+  "description": "Reviewed evidence candidate for optional malak import when public ad disclosures intersect public IOC/phishing/malware/fraud indicators. Evidence only, never an accusation.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["createdAt", "candidateType", "sourceCids", "methodNoteCid", "reviewStatus", "nonAdjudicatingNotice", "attestingDid"],
+        "properties": {
+          "createdAt": {"type": "string", "format": "datetime"},
+          "candidateType": {"type": "string", "knownValues": ["public-ioc-domain-match", "public-phishing-url-match", "brand-abuse-report-match", "malware-hash-match"]},
+          "sourceCids": {"type": "array", "items": {"type": "string"}, "minLength": 2},
+          "publicIndicatorCid": {"type": "string"},
+          "methodNoteCid": {"type": "string"},
+          "reviewStatus": {"type": "string", "knownValues": ["candidate-only", "human-reviewed", "malak-imported", "rejected"]},
+          "malakImportCid": {"type": "string"},
+          "nonAdjudicatingNotice": {"type": "boolean", "const": true},
+          "attestingDid": {"type": "string", "format": "did"}
+        }
+      }
+    }
+  }
+}

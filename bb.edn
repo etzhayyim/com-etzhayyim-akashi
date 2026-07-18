@@ -1,0 +1,3 @@
+{:tasks
+ {test {:task (shell "bb -cp src:test -m akashi.test-runner")}
+  audit {:task (shell "bb scripts/audit.clj")}}}

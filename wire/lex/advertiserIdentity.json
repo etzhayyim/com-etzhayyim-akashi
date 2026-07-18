@@ -1,0 +1,28 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.akashi.advertiserIdentity",
+  "description": "Advertiser/page/account identity exactly as disclosed by a public ad-library source. No private identity inference.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["createdAt", "platform", "sourceSnapshotCid", "displayName", "nonInferred", "attestingDid"],
+        "properties": {
+          "createdAt": {"type": "string", "format": "datetime"},
+          "platform": {"type": "string", "maxLength": 64},
+          "sourceSnapshotCid": {"type": "string"},
+          "displayName": {"type": "string", "maxLength": 512},
+          "platformAdvertiserId": {"type": "string", "maxLength": 256},
+          "pageUrl": {"type": "string", "format": "uri"},
+          "websiteDomain": {"type": "string", "maxLength": 253},
+          "jurisdiction": {"type": "string", "maxLength": 16},
+          "verifiedStatus": {"type": "string", "knownValues": ["source-verified", "source-unverified", "not-disclosed"]},
+          "nonInferred": {"type": "boolean", "const": true},
+          "attestingDid": {"type": "string", "format": "did"}
+        }
+      }
+    }
+  }
+}
