@@ -50,6 +50,15 @@ ADR-2606022300 R1 activation and source-policy review gates are attested.
 | `akashi_transparency_report` | periodic | `adTransparencyReport` |
 | `akashi_malak_evidence_bridge` | event-gated | `malakEvidenceCandidate` |
 
+## Migration Boundary
+
+`kotoba-lang/kotodama-cells/akashi_*` is legacy source
+during migration. New akashi cell orchestration belongs in
+`src/akashi/murakumo.cljc` as pure `.cljc` actor plans. The plans preserve the
+R0 gate behavior by emitting no write effects until Council/source-policy/R1
+attestations are supplied. Host placement remains in `kotoba-lang/murakumo`;
+AT Protocol/PDS surfaces remain in `gftdcojp/app-aozora`.
+
 ## R0 Coverage
 
 R0 coverage is schema and planning coverage only. There are no live adapters,
