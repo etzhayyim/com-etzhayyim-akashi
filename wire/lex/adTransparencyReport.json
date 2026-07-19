@@ -1,35 +1,86 @@
 {
-  "lexicon": 1,
-  "id": "com.etzhayyim.akashi.adTransparencyReport",
-  "description": "Aggregate public ad-disclosure transparency report. Named advertiser sections mirror source-public names only and require review for sensitive categories.",
-  "defs": {
-    "main": {
-      "type": "record",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["createdAt", "periodStart", "periodEnd", "sourcePolicyCids", "aggregateStats", "methodNoteCids", "nonAdjudicatingNotice", "attestingDid"],
-        "properties": {
-          "createdAt": {"type": "string", "format": "datetime"},
-          "periodStart": {"type": "string", "format": "datetime"},
-          "periodEnd": {"type": "string", "format": "datetime"},
-          "sourcePolicyCids": {"type": "array", "items": {"type": "string"}, "minLength": 1},
-          "aggregateStats": {"type": "array", "items": {"type": "ref", "ref": "#aggregateStat"}, "minLength": 1},
-          "namedAdvertiserSectionCids": {"type": "array", "items": {"type": "string"}},
-          "methodNoteCids": {"type": "array", "items": {"type": "string"}, "minLength": 1},
-          "nonAdjudicatingNotice": {"type": "boolean", "const": true},
-          "attestingDid": {"type": "string", "format": "did"}
+  "lexicon" : 1,
+  "id" : "com.etzhayyim.akashi.adTransparencyReport",
+  "description" : "Aggregate public ad-disclosure transparency report. Named advertiser sections mirror source-public names only and require review for sensitive categories.",
+  "defs" : {
+    "main" : {
+      "type" : "record",
+      "key" : "tid",
+      "record" : {
+        "type" : "object",
+        "required" : [ "createdAt", "periodStart", "periodEnd", "sourcePolicyCids", "aggregateStats", "methodNoteCids", "nonAdjudicatingNotice", "attestingDid" ],
+        "properties" : {
+          "nonAdjudicatingNotice" : {
+            "type" : "boolean",
+            "const" : true
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "datetime"
+          },
+          "aggregateStats" : {
+            "type" : "array",
+            "items" : {
+              "type" : "ref",
+              "ref" : "#aggregateStat"
+            },
+            "minLength" : 1
+          },
+          "periodStart" : {
+            "type" : "string",
+            "format" : "datetime"
+          },
+          "periodEnd" : {
+            "type" : "string",
+            "format" : "datetime"
+          },
+          "sourcePolicyCids" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            },
+            "minLength" : 1
+          },
+          "namedAdvertiserSectionCids" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "methodNoteCids" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            },
+            "minLength" : 1
+          },
+          "attestingDid" : {
+            "type" : "string",
+            "format" : "did"
+          }
         }
       }
     },
-    "aggregateStat": {
-      "type": "object",
-      "required": ["label", "count"],
-      "properties": {
-        "label": {"type": "string", "maxLength": 128},
-        "count": {"type": "integer", "minimum": 0},
-        "platform": {"type": "string", "maxLength": 64},
-        "jurisdiction": {"type": "string", "maxLength": 16}
+    "aggregateStat" : {
+      "type" : "object",
+      "required" : [ "label", "count" ],
+      "properties" : {
+        "label" : {
+          "type" : "string",
+          "maxLength" : 128
+        },
+        "count" : {
+          "type" : "integer",
+          "minimum" : 0
+        },
+        "platform" : {
+          "type" : "string",
+          "maxLength" : 64
+        },
+        "jurisdiction" : {
+          "type" : "string",
+          "maxLength" : 16
+        }
       }
     }
   }

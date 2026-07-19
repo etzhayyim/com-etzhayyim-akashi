@@ -1,46 +1,64 @@
 {
-  "lexicon": 1,
-  "id": "com.etzhayyim.akashi.sourcePolicySnapshot",
-  "description": "Public source access-policy snapshot for one ad-disclosure source. Required before any akashi adapter emits adDisclosureSnapshot.",
-  "defs": {
-    "main": {
-      "type": "record",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": [
-          "createdAt",
-          "platform",
-          "sourceFamily",
-          "sourceUrl",
-          "accessMode",
-          "collectionStatus",
-          "methodNoteCid",
-          "attestingDid"
-        ],
-        "properties": {
-          "createdAt": {"type": "string", "format": "datetime"},
-          "platform": {"type": "string", "maxLength": 64},
-          "sourceFamily": {
-            "type": "string",
-            "knownValues": ["social-ad-library", "messaging-portal", "search-video-library", "regulator-repository", "regional-transparency-portal"]
+  "lexicon" : 1,
+  "id" : "com.etzhayyim.akashi.sourcePolicySnapshot",
+  "description" : "Public source access-policy snapshot for one ad-disclosure source. Required before any akashi adapter emits adDisclosureSnapshot.",
+  "defs" : {
+    "main" : {
+      "type" : "record",
+      "key" : "tid",
+      "record" : {
+        "type" : "object",
+        "required" : [ "createdAt", "platform", "sourceFamily", "sourceUrl", "accessMode", "collectionStatus", "methodNoteCid", "attestingDid" ],
+        "properties" : {
+          "retentionWindowDays" : {
+            "type" : "integer",
+            "minimum" : 0
           },
-          "sourceUrl": {"type": "string", "format": "uri"},
-          "jurisdiction": {"type": "string", "maxLength": 16},
-          "accessMode": {
-            "type": "string",
-            "knownValues": ["public-page", "public-bulk-export", "manual-review-only", "disabled"]
+          "createdAt" : {
+            "type" : "string",
+            "format" : "datetime"
           },
-          "collectionStatus": {
-            "type": "string",
-            "knownValues": ["allowed", "manual-review", "disabled"]
+          "termsPolicyCid" : {
+            "type" : "string"
           },
-          "robotsPolicyCid": {"type": "string"},
-          "termsPolicyCid": {"type": "string"},
-          "retentionWindowDays": {"type": "integer", "minimum": 0},
-          "cadenceHours": {"type": "integer", "minimum": 1},
-          "methodNoteCid": {"type": "string"},
-          "attestingDid": {"type": "string", "format": "did"}
+          "collectionStatus" : {
+            "type" : "string",
+            "knownValues" : [ "allowed", "manual-review", "disabled" ]
+          },
+          "sourceUrl" : {
+            "type" : "string",
+            "format" : "uri"
+          },
+          "jurisdiction" : {
+            "type" : "string",
+            "maxLength" : 16
+          },
+          "accessMode" : {
+            "type" : "string",
+            "knownValues" : [ "public-page", "public-bulk-export", "manual-review-only", "disabled" ]
+          },
+          "methodNoteCid" : {
+            "type" : "string"
+          },
+          "sourceFamily" : {
+            "type" : "string",
+            "knownValues" : [ "social-ad-library", "messaging-portal", "search-video-library", "regulator-repository", "regional-transparency-portal" ]
+          },
+          "cadenceHours" : {
+            "type" : "integer",
+            "minimum" : 1
+          },
+          "platform" : {
+            "type" : "string",
+            "maxLength" : 64
+          },
+          "robotsPolicyCid" : {
+            "type" : "string"
+          },
+          "attestingDid" : {
+            "type" : "string",
+            "format" : "did"
+          }
         }
       }
     }

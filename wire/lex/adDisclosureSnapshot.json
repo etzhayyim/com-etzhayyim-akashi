@@ -1,34 +1,53 @@
 {
-  "lexicon": 1,
-  "id": "com.etzhayyim.akashi.adDisclosureSnapshot",
-  "description": "Raw public ad-disclosure snapshot with source lineage and payload CID/hash.",
-  "defs": {
-    "main": {
-      "type": "record",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": [
-          "fetchedAt",
-          "platform",
-          "sourcePolicyCid",
-          "sourceUrl",
-          "payloadCid",
-          "payloadSha256",
-          "parserVersion",
-          "attestingDid"
-        ],
-        "properties": {
-          "fetchedAt": {"type": "string", "format": "datetime"},
-          "platform": {"type": "string", "maxLength": 64},
-          "sourcePolicyCid": {"type": "string"},
-          "sourceRecordId": {"type": "string", "maxLength": 256},
-          "sourceUrl": {"type": "string", "format": "uri"},
-          "payloadCid": {"type": "string"},
-          "payloadSha256": {"type": "string", "maxLength": 64},
-          "parserVersion": {"type": "string", "maxLength": 64},
-          "sourceLimited": {"type": "boolean", "default": true},
-          "attestingDid": {"type": "string", "format": "did"}
+  "lexicon" : 1,
+  "id" : "com.etzhayyim.akashi.adDisclosureSnapshot",
+  "description" : "Raw public ad-disclosure snapshot with source lineage and payload CID/hash.",
+  "defs" : {
+    "main" : {
+      "type" : "record",
+      "key" : "tid",
+      "record" : {
+        "type" : "object",
+        "required" : [ "fetchedAt", "platform", "sourcePolicyCid", "sourceUrl", "payloadCid", "payloadSha256", "parserVersion", "attestingDid" ],
+        "properties" : {
+          "fetchedAt" : {
+            "type" : "string",
+            "format" : "datetime"
+          },
+          "payloadCid" : {
+            "type" : "string"
+          },
+          "sourceLimited" : {
+            "type" : "boolean",
+            "default" : true
+          },
+          "sourceRecordId" : {
+            "type" : "string",
+            "maxLength" : 256
+          },
+          "sourceUrl" : {
+            "type" : "string",
+            "format" : "uri"
+          },
+          "sourcePolicyCid" : {
+            "type" : "string"
+          },
+          "parserVersion" : {
+            "type" : "string",
+            "maxLength" : 64
+          },
+          "payloadSha256" : {
+            "type" : "string",
+            "maxLength" : 64
+          },
+          "platform" : {
+            "type" : "string",
+            "maxLength" : 64
+          },
+          "attestingDid" : {
+            "type" : "string",
+            "format" : "did"
+          }
         }
       }
     }
