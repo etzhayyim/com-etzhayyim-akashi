@@ -1,28 +1,61 @@
 {
-  "lexicon": 1,
-  "id": "com.etzhayyim.akashi.creativeDisclosure",
-  "description": "Creative text/media/category disclosure for one public ad artifact.",
-  "defs": {
-    "main": {
-      "type": "record",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["createdAt", "sourceSnapshotCid", "advertiserIdentityCid", "methodNoteCid", "attestingDid"],
-        "properties": {
-          "createdAt": {"type": "string", "format": "datetime"},
-          "sourceSnapshotCid": {"type": "string"},
-          "advertiserIdentityCid": {"type": "string"},
-          "creativeTextCid": {"type": "string"},
-          "creativeTextSha256": {"type": "string", "maxLength": 64},
-          "mediaCid": {"type": "string"},
-          "mediaSha256": {"type": "string", "maxLength": 64},
-          "language": {"type": "string", "maxLength": 16},
-          "disclosedCategory": {"type": "string", "maxLength": 128},
-          "sourceIssuePoliticalFlag": {"type": "string", "knownValues": ["source-disclosed", "source-not-disclosed", "not-applicable"]},
-          "landingEvidenceCid": {"type": "string"},
-          "methodNoteCid": {"type": "string"},
-          "attestingDid": {"type": "string", "format": "did"}
+  "lexicon" : 1,
+  "id" : "com.etzhayyim.akashi.creativeDisclosure",
+  "description" : "Creative text/media/category disclosure for one public ad artifact.",
+  "defs" : {
+    "main" : {
+      "type" : "record",
+      "key" : "tid",
+      "record" : {
+        "type" : "object",
+        "required" : [ "createdAt", "sourceSnapshotCid", "advertiserIdentityCid", "methodNoteCid", "attestingDid" ],
+        "properties" : {
+          "landingEvidenceCid" : {
+            "type" : "string"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "datetime"
+          },
+          "disclosedCategory" : {
+            "type" : "string",
+            "maxLength" : 128
+          },
+          "mediaSha256" : {
+            "type" : "string",
+            "maxLength" : 64
+          },
+          "sourceSnapshotCid" : {
+            "type" : "string"
+          },
+          "creativeTextSha256" : {
+            "type" : "string",
+            "maxLength" : 64
+          },
+          "methodNoteCid" : {
+            "type" : "string"
+          },
+          "advertiserIdentityCid" : {
+            "type" : "string"
+          },
+          "creativeTextCid" : {
+            "type" : "string"
+          },
+          "language" : {
+            "type" : "string",
+            "maxLength" : 16
+          },
+          "sourceIssuePoliticalFlag" : {
+            "type" : "string",
+            "knownValues" : [ "source-disclosed", "source-not-disclosed", "not-applicable" ]
+          },
+          "mediaCid" : {
+            "type" : "string"
+          },
+          "attestingDid" : {
+            "type" : "string",
+            "format" : "did"
+          }
         }
       }
     }
